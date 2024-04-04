@@ -7,3 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+(1..18).each do |i|
+    Kitten.create(name: "Kitten #{i}", love: 0, sad: 0, laugh: 0, happy: 0, cute: 0)
+  end

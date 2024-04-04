@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  # Define routes for kittens
+  resources :kittens, only: [:index, :show]
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Define a custom route for the top 3 page
+  get '/top3', to: 'kittens#top3', as: 'top3'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get '/random_kitten', to: 'kittens#random_kitten', as: 'random_kitten'
 
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Define the root route
+  root 'kittens#index'
 end
