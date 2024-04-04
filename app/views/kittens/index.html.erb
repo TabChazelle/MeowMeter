@@ -1,10 +1,12 @@
 <% @kittens.each_with_index do |kitten, index| %>
-  <div>
-    <%= link_to kitten_path(kitten) do %>
-      <%= image_tag "cat_#{index + 1}.jpg" %>
-    <% end %>
-    <h2><%= kitten.name %></h2>
-    <p>Total Reactions: <%= kitten.love + kitten.sad + kitten.laugh + kitten.happy + kitten.cute %></p>
-  </div>
-<% end %>
-<%= link_to "Surprise Kitty", random_kitten_path %>
+    <div>
+      <%= link_to kitten_path(kitten) do %>
+        <%= image_tag "cat_#{index + 1}.jpg" %>
+      <% end %>
+      <h2><%= kitten.name %></h2>
+      <p>Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
+    </div>
+  <% end %>
+  
+
+  <%= link_to "Surprise Kitty", random_kitten_path %>

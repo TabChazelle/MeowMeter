@@ -1,12 +1,50 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-(1..18).each do |i|
-    Kitten.create(name: "Kitten #{i}", love: 0, sad: 0, laugh: 0, happy: 0, cute: 0)
+pun_names = [
+  "Purrlock Holmes",
+  "Meowrio",
+  "Sir Pounce-a-lot",
+  "Leonardo DiCatrio",
+  "Catrick Swayze",
+  "Lord Purrington",
+  "Catrick Stewart",
+  "Meowzart",
+  "Furrball",
+  "Whiskers",
+  "Furrgie",
+  "Clawdia Schiffer",
+  "Meowly Cyrus",
+  "Kitty Purry",
+  "Garfield",
+  "Tom",
+  "Mewbacca",
+  "Cat"
+]
+
+reaction_types = ['love', 'sad', 'laugh', 'happy', 'cute']
+
+# Shuffle the pun_names array to randomize the order
+pun_names.shuffle!
+
+# Initialize an empty array to keep track of assigned names
+assigned_names = []
+
+18.times do |i|
+    # Get the next available name from the shuffled pun_names array
+    name = pun_names.shift
+  
+    # If all names have been used, shuffle the pun_names array again
+    if name.nil?
+      pun_names.shuffle!
+      name = pun_names.shift
+    end
+  
+    # Create the kitten with the assigned name
+    kitten = Kitten.create(
+      name: name,
+      image_url: "cat_#{i + 1}.jpg"
+    )
+  
+    # Generate random reaction counts for each reaction type
+    reaction_types.each do |reaction_type|
+      kitten.reactions.create(reaction_type: reaction_type, reaction_count: rand(0..10))
+    end
   end

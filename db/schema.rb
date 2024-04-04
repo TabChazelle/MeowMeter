@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_04_131156) do
   create_table "reactions", force: :cascade do |t|
     t.bigint "kitten_id", null: false
     t.string "reaction_type"
+    t.integer "reaction_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["kitten_id"], name: "index_reactions_on_kitten_id"
