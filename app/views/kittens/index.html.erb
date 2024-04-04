@@ -1,12 +1,47 @@
-<% @kittens.each_with_index do |kitten, index| %>
-    <div>
-      <%= link_to kitten_path(kitten) do %>
-        <%= image_tag "cat_#{index + 1}.jpg" %>
-      <% end %>
-      <h2><%= kitten.name %></h2>
-      <p>Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
-    </div>
-  <% end %>
-  
+<div class="container">
+  <div class="row">
+    <% @images = ["love.png", "laugh.png", "happy.png", "cute.png", "Sad.png"] %>
+    <% @kittens.each_with_index do |kitten, index| %>
+      <div class="col-md-4">
+        <div class="box">
+          <%= link_to kitten_path(kitten) do %>
+            <%= image_tag "cat_#{index + 1}.jpg", class: "img-fluid" %>
+          <% end %>
+          <h2><%= kitten.name %></h2>
+          <div class="emoji-buttons">
+            <% @images.each do |image| %>
+              <button class="like-button" data-kitten-id="<%= kitten.id %>">
+                <%= image_tag image, class: "emoji-image" %>
+              </button>
+            <% end %>
+          </div>
+          <p class="like-counter">Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-  <%= link_to "Surprise Kitty", random_kitten_path %>
+<%= link_to "Surprise Kitty", random_kitten_path %>
+
+<script>
+document.querySelectorAll('.like-button').forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    const kittenId = button.dataset.kittenId;
+    const counter = button.closest('.box').querySelector('.like-counter');
+    fetch(`/kittens/${kittenId}/reactions`, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      counter.textContent = `Total Reactions: ${data.total_reactions}`;
+    });
+  });
+});
+</script>

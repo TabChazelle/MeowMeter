@@ -10,13 +10,26 @@
 
 // Components
 @import "components/navbar";
+@import "components/main_grid";
 
 
 // // Background for every page
 main {
+  position: relative;
+}
+
+main::before {
+  content: "";
   background: image-url('Background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  opacity: 0.5;  // Change this value to adjust the transparency
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
