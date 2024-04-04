@@ -7,6 +7,36 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-(1..18).each do |i|
-    Kitten.create(name: "Kitten #{i}", love: 0, sad: 0, laugh: 0, happy: 0, cute: 0)
+
+pun_names = [
+  "Purrlock Holmes",
+  "Meowrio",
+  "Sir Pounce-a-lot",
+  "Leonardo DiCatrio",
+  "Catrick Swayze",
+  "Lord Purrington",
+  "Catrick Stewart",
+  "Meowzart",
+  "Furrball",
+  "Whiskers",
+  "Furrgie",
+  "Clawdia Schiffer",
+  "Meowly Cyrus",
+  "Kitty Purry",
+  "Garfield",
+  "Tom",
+  "Mewbacca",
+  "Cat"
+]
+
+18.times do |i|
+    Kitten.create(
+      name: pun_names[i],
+      image_url: "cat_#{i + 1}.jpg",
+      love: 0,
+      sad: 0,
+      laugh: 0,
+      happy: 0,
+      cute: 0
+    )
   end
