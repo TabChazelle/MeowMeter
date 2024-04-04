@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin: 5px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 20px;
+  min-height: 300px;
+}
+
+.box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.emoji-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+  }
+}
+
+.like-button {
+  border: none;
+  background: none;
+  padding: 5px;
+}
+
+.emoji-image {
+  width: 50px !important; // Adjust as needed
+  height: 50px !important; // Adjust as needed
+  object-fit: contain;
+}

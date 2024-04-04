@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/random_kitten', to: 'kittens#random_kitten', as: 'random_kitten'
 
+  post '/kittens/:id/reactions', to: 'kittens#add_reaction', as: 'add_reaction'
+
   # Define the root route
   root 'kittens#index'
 end

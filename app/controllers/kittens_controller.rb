@@ -8,7 +8,13 @@ class KittensController < ApplicationController
   end
 
   def top3
-   
+
+  end
+
+  def add_reaction
+    @kitten = Kitten.find(params[:id])
+    @kitten.reactions.create(reaction_count: 1)
+    render json: { total_reactions: @kitten.reactions.sum(:reaction_count) }
   end
 
   def random_kitten
