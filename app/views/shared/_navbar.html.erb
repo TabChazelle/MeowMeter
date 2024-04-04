@@ -1,11 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
     <%= link_to '/', class: "navbar-brand" do %>
       <i class="fa-solid fa-cat"></i>
     <% end %>
-
     <div class="navbar-text mx-auto">
-      MEOWMETER
+    <%= link_to 'MEOWMETER', '/', class: "navbar-text mx-auto", style: "text-decoration: none;" %>
+      <%# MEOWMETER %>
     </div>
   </div>
 </div>
