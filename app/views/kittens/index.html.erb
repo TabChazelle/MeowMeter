@@ -1,2 +1,10 @@
-<h1>Kittens#index</h1>
-<p>Find me in app/views/kittens/index.html.erb</p>
+<% @kittens.each_with_index do |kitten, index| %>
+  <div>
+    <%= link_to kitten_path(kitten) do %>
+      <%= image_tag "cat_#{index + 1}.jpg" %>
+    <% end %>
+    <h2><%= kitten.name %></h2>
+    <p>Total Reactions: <%= kitten.love + kitten.sad + kitten.laugh + kitten.happy + kitten.cute %></p>
+  </div>
+<% end %>
+<%= link_to "Surprise Kitty", random_kitten_path %>

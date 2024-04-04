@@ -1,2 +1,21 @@
 <h1>Kittens#show</h1>
 <p>Find me in app/views/kittens/show.html.erb</p>
+<!-- app/views/kittens/show.html.erb -->
+
+<h1><%= @kitten.name %></h1>
+
+<div>
+  <%= image_tag "cat_#{@kitten.id}.jpg" %>
+</div>
+
+<h2>Reactions</h2>
+<ul>
+  <li>Love: <%= @kitten.reactions.where(reaction_type: 'love').count %></li>
+  <li>Sad: <%= @kitten.reactions.where(reaction_type: 'sad').count %></li>
+  <li>Laugh: <%= @kitten.reactions.where(reaction_type: 'laugh').count %></li>
+  <li>Happy: <%= @kitten.reactions.where(reaction_type: 'happy').count %></li>
+  <li>Cute: <%= @kitten.reactions.where(reaction_type: 'cute').count %></li>
+</ul>
+
+
+<%= link_to "Back to Index", kittens_path %>
