@@ -1,6 +1,6 @@
 class KittensController < ApplicationController
   def index
-    @kittens = Kitten.limit(10)
+    @kittens = Kitten.limit(12)
   end
 
   def show
@@ -8,7 +8,7 @@ class KittensController < ApplicationController
   end
 
   def top3
-
+    @top_kittens = Kitten.left_joins(:reactions).group(:id).order('SUM(reactions.reaction_count) DESC').limit(3)
   end
 
   def add_reaction

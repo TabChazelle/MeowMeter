@@ -14,12 +14,13 @@
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   padding: 20px;
+  padding-bottom: 3px; /* Adjust the padding at the bottom */
   min-height: 300px;
 }
 
 .box img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
   margin: auto;
   border-radius: 10px;
