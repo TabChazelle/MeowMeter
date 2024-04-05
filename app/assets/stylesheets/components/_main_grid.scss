@@ -1,10 +1,12 @@
 .container {
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .box {
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,4 +49,9 @@
   width: 50px !important; // Adjust as needed
   height: 50px !important; // Adjust as needed
   object-fit: contain;
+}
+
+.like-counter {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bolder;
 }
