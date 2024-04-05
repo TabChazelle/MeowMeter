@@ -55,3 +55,16 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: bolder;
 }
+
+.reaction-message {
+  position: absolute;
+  background-color: rgba(166, 126, 214, 0.747) !important; // Changed alpha value to 0.5
+  color: #fff;
+  border-radius: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bolder;
+  font-size: 16px;
+  z-index: 9999;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
