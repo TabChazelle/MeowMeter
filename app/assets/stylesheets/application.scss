@@ -36,17 +36,21 @@ main::before {
 }
 
 
+
+
 .top-link {
-  position: absolute;
-  top: 65px; /* Adjust this value to position it vertically */
-  left: 10px; /* Adjust this value to position it horizontally */
-  z-index: 1000; /* Ensure it appears above other content */
+ 
+  position: absolute !important;
+  top: 65px !important; 
+  left: 10px; 
+  z-index: 1000;
 }
 
 
 .random-kitty-link {
-  position: absolute;
-  top: 160px; /* Adjust this value to position it vertically */
+
+  position: absolute !important;
+  top: 160px !important; /* Adjust this value to position it vertically */
   left: 10px; /* Adjust this value to position it horizontally */
   z-index: 1000; /* Ensure it appears above other content */
 }
@@ -77,6 +81,7 @@ main::before {
   text-decoration: none; /* Remove underline */
 }
 
+
 a {
   text-decoration: none;
   color: inherit;
@@ -93,4 +98,12 @@ a {
   font-weight: bolder;
   font-family: 'Plus Jakarta Sans', sans-serif;
   padding-bottom: 5px;
+
+.top3-container {
+
+  min-height: 100vh; /* Set the minimum height to fill the viewport */
+  padding-top: 50px; /* Adjust top padding as needed */
+  padding-left: 150px; /* Adjust left padding as needed */
+  padding-right: 150px;
+
 }

@@ -1,6 +1,6 @@
 pun_names = [
   "Purrlock Holmes",
-  "Meowrio",
+  "MeowMeow",
   "Sir Pounce-a-lot",
   "Leonardo DiCatrio",
   "Catrick Swayze",
@@ -14,9 +14,9 @@ pun_names = [
   "Meowly Cyrus",
   "Kitty Purry",
   "Garfield",
-  "Tom",
+  "O'Malley",
   "Mewbacca",
-  "Cat"
+  "The Cat"
 ]
 
 reaction_types = ['love', 'sad', 'laugh', 'happy', 'cute']
