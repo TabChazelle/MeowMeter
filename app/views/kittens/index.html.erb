@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% @images = ["love.png", "laugh.png", "happy.png", "cute.png", "Sad.png"] %>
+    <% @images = ["love", "laugh", "happy", "cute", "sad"] %>
     <% @kittens.each_with_index do |kitten, index| %>
       <div class="col-md-4">
         <div class="box">
@@ -10,8 +10,8 @@
           <h2><%= kitten.name %></h2>
           <div class="emoji-buttons">
             <% @images.each do |image| %>
-              <button class="like-button" data-kitten-id="<%= kitten.id %>">
-                <%= image_tag image, class: "emoji-image" %>
+              <button class="like-button" data-kitten-id="<%= kitten.id %>" data-reaction-type="<%= image %>">
+                <%= image_tag "#{image}.png", class: "emoji-image" %>
               </button>
             <% end %>
           </div>
@@ -25,22 +25,23 @@
 <%= link_to "Surprise Kitty", random_kitten_path %>
 
 <script>
-document.querySelectorAll('.like-button').forEach(button => {
+document.querySelectorAll('.like-button').forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
     const kittenId = button.dataset.kittenId;
-    const counter = button.closest('.box').querySelector('.like-counter');
+    const reactionType = button.dataset.reactionType;
     fetch(`/kittens/${kittenId}/reactions`, {
       method: 'POST',
       headers: {
         'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-      }
+      },
+      body: JSON.stringify({ reaction_type: reactionType })
     })
     .then(response => response.json())
     .then(data => {
-      counter.textContent = `Total Reactions: ${data.total_reactions}`;
+      button.closest('.box').querySelector('.like-counter').textContent = `Total Reactions: ${data.total_reactions}`;
     });
   });
 });
