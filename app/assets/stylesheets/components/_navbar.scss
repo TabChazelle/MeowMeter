@@ -1,5 +1,7 @@
 .navbar-lewagon {
+  display: flex; /* Set the display property to flex */
   justify-content: space-between;
+  align-items: center; /* Align items vertically */
   background: rgb(165, 126, 214);
 }
 
@@ -9,6 +11,7 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  order: 2; /* Move the logo to the right */
 }
 
 .navbar-text {
@@ -20,6 +23,7 @@
   color: rgb(87, 174, 167) !important;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   letter-spacing: 0.1em;
+  order: 1; /* Keep the text on the left */
 }
 
 .fa-solid fa-cat {
