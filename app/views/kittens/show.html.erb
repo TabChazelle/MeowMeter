@@ -1,21 +1,33 @@
-<h1>Kittens#show</h1>
-<p>Find me in app/views/kittens/show.html.erb</p>
-<!-- app/views/kittens/show.html.erb -->
+<div class="cat-container">
+  <h1><%= @kitten.name %></h1>
 
-<h1><%= @kitten.name %></h1>
+  <div class="cat-box">
+    <%= image_tag "cat_#{@kitten.id}.jpg", class: "cat-image" %>
 
-<div>
-  <%= image_tag "cat_#{@kitten.id}.jpg" %>
+    <h2></h2>
+    <div class="cat-emoji-buttons">
+      <button class="cat-like-button">
+        Love: <%= @kitten.reactions.find_by(reaction_type: 'love').reaction_count %>
+        <%= image_tag "love.png", class: "cat-emoji-image" %>
+      </button>
+      <button class="cat-like-button">
+        Sad: <%= @kitten.reactions.find_by(reaction_type: 'sad').reaction_count %>
+        <%= image_tag "sad.png", class: "cat-emoji-image" %>
+      </button>
+      <button class="cat-like-button">
+        Laugh: <%= @kitten.reactions.find_by(reaction_type: 'laugh').reaction_count %>
+        <%= image_tag "laugh.png", class: "cat-emoji-image" %>
+      </button>
+      <button class="cat-like-button">
+        Happy: <%= @kitten.reactions.find_by(reaction_type: 'happy').reaction_count %>
+        <%= image_tag "happy.png", class: "cat-emoji-image" %>
+      </button>
+      <button class="cat-like-button">
+        Cute: <%= @kitten.reactions.find_by(reaction_type: 'cute').reaction_count %>
+        <%= image_tag "cute.png", class: "cat-emoji-image" %>
+      </button>
+    </div>
+  </div>
+
+  <%= link_to "Back to Index", kittens_path, class: "back-button" %>
 </div>
-
-<h2>Reactions</h2>
-<ul>
-  <li>Love: <%= @kitten.reactions.find_by(reaction_type: 'love').reaction_count %></li>
-  <li>Sad: <%= @kitten.reactions.find_by(reaction_type: 'sad').reaction_count %></li>
-  <li>Laugh: <%= @kitten.reactions.find_by(reaction_type: 'laugh').reaction_count %></li>
-  <li>Happy: <%= @kitten.reactions.find_by(reaction_type: 'happy').reaction_count %></li>
-  <li>Cute: <%= @kitten.reactions.find_by(reaction_type: 'cute').reaction_count %></li>
-</ul>
-
-
-<%= link_to "Back to Index", kittens_path %>
