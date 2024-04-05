@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
@@ -20,14 +21,11 @@
       <%= image_tag("top3.png", alt: "Top") %>
       <span class="button-text-top">Top</span>
     <% end %>
-    
+
     <%= link_to random_kitten_path, class: "random-kitty-link" do %>
       <%= image_tag("random.png", alt: "Random Kitty") %>
       <span class="button-text-random">Random Kitty</span>
     <% end %>
-    
+
   </body>
 </html>
-
-# hi there! I'm a comment!
-#comment again

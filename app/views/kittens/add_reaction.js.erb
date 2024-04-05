@@ -1,0 +1,1 @@
+document.getElementById("<%= params[:type] %>-button").innerHTML = "<%= params[:type].capitalize %>: <%= @kitten.reactions.find_by(reaction_type: params[:type]).reaction_count %>";

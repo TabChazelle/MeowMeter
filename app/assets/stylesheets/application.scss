@@ -76,3 +76,21 @@ main::before {
 .top-link, .random-kitty-link {
   text-decoration: none; /* Remove underline */
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+
+  &:hover,
+  &:visited {
+    color: inherit;
+  }
+}
+
+.title {
+  color: black;
+  font-weight: bolder;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding-bottom: 5px;
+}

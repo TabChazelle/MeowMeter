@@ -5,9 +5,10 @@
       <div class="col-md-4">
         <div class="box">
           <%= link_to kitten_path(kitten) do %>
+          <h2 class="title"><%= kitten.name %></h2>
             <%= image_tag "cat_#{index + 1}.jpg", class: "img-fluid" %>
           <% end %>
-          <h2><%= kitten.name %></h2>
+          <p class="like-counter">Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
           <div class="emoji-buttons">
             <% @images.each do |image| %>
               <button class="like-button" data-kitten-id="<%= kitten.id %>" data-reaction-type="<%= image %>">
@@ -15,7 +16,6 @@
               </button>
             <% end %>
           </div>
-          <p class="like-counter">Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
         </div>
       </div>
     <% end %>
@@ -42,6 +42,7 @@ document.querySelectorAll('.like-button').forEach((button) => {
     .then(response => response.json())
     .then(data => {
       button.closest('.box').querySelector('.like-counter').textContent = `Total Reactions: ${data.total_reactions}`;
+      button.querySelector('.reaction-counter').textContent = `${data.reaction_count}`;
     });
   });
 });
