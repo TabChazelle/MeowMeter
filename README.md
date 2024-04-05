@@ -2,7 +2,7 @@
 
 -- About -- 
 
-MeowMeter is a simple web application created as part of a 24-hour app conception and development challenge. The challenge aimed to enhance our skills by pushing us to design and build a functional app within a limited timeframe. Our team was presented with a random theme for the project, in this case "kitten rating." The app was made  by  @KTassieand myself (@TabChazelle)
+MeowMeter is a simple web application created as part of a 24-hour app conception and development challenge. The challenge aimed to enhance our skills by pushing us to design and build a functional app within a limited timeframe. Our team was presented with a random theme for the project, in this case "kitten rating." The app was made  by  @KTassie and myself (@TabChazelle)
 
 -- Purpose --
 
@@ -27,7 +27,7 @@ The primary goal of MeowMeter was to create a fun and interactive platform where
 
 MeowMeter was a delightful project born out of a spontaneous challenge. It served as an excellent opportunity for us to hone our development skills while indulging in the joy of kittens. We hope you enjoy using MeowMeter as much as we enjoyed creating it!
 
-Feel free to explore the code !
+Feel free to explore the code!
 
 Thank you for visiting MeowMeter! 🐾
 
