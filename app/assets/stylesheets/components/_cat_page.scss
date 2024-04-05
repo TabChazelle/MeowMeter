@@ -31,9 +31,11 @@
 .cat-emoji-buttons {
   display: flex;
   justify-content: space-around;
+  align-items: center; /* Add this line */
   width: 100%;
   margin-top: 20px;
 }
+
 
 @media (max-width: 768px) {
   .cat-box {
@@ -59,7 +61,7 @@
   font-size: 1em;
   padding: 10px 20px;
   margin-top: 20px;
-  color: #fff;
+  color: #fff !important;
   background-color: rgb(165, 126, 214);
   border: none;
   border-radius: 50px;

@@ -1,25 +1,24 @@
 <div class="cat-container">
-
   <div class="cat-box">
-  <h1 class="title"><%= @kitten.name %></h1>
+    <h1 class="title"><%= @kitten.name %></h1>
     <%= image_tag "cat_#{@kitten.id}.jpg", class: "cat-image" %>
-
+    
     <h2></h2>
     <div class="cat-emoji-buttons">
       <%= link_to image_tag("love.png", class: "cat-emoji-image"), kitten_add_reaction_path(@kitten, type: 'love'), method: :post, data: { turbo_action: 'replace', turbo_frame: 'my_frame' }, class: "cat-like-button", id: "love-button" %>
-      <%= @kitten.reactions.find_by(reaction_type: 'love').reaction_count %>
+      <span class="reaction-counter"><%= @kitten.reactions.find_by(reaction_type: 'love').reaction_count %></span>
 
       <%= link_to image_tag("laugh.png", class: "cat-emoji-image"), kitten_add_reaction_path(@kitten, type: 'laugh'), method: :post, data: { turbo_action: 'replace', turbo_frame: 'my_frame' }, class: "cat-like-button", id: "laugh-button" %>
-      <%= @kitten.reactions.find_by(reaction_type: 'laugh').reaction_count %>
+      <span class="reaction-counter"><%= @kitten.reactions.find_by(reaction_type: 'laugh').reaction_count %></span>
 
       <%= link_to image_tag("happy.png", class: "cat-emoji-image"), kitten_add_reaction_path(@kitten, type: 'happy'), method: :post, data: { turbo_action: 'replace', turbo_frame: 'my_frame' }, class: "cat-like-button", id: "happy-button" %>
-      <%= @kitten.reactions.find_by(reaction_type: 'happy').reaction_count %>
+      <span class="reaction-counter"><%= @kitten.reactions.find_by(reaction_type: 'happy').reaction_count %></span>
 
       <%= link_to image_tag("cute.png", class: "cat-emoji-image"), kitten_add_reaction_path(@kitten, type: 'cute'), method: :post, data: { turbo_action: 'replace', turbo_frame: 'my_frame' }, class: "cat-like-button", id: "cute-button" %>
-      <%= @kitten.reactions.find_by(reaction_type: 'cute').reaction_count %>
+      <span class="reaction-counter"><%= @kitten.reactions.find_by(reaction_type: 'cute').reaction_count %></span>
 
       <%= link_to image_tag("sad.png", class: "cat-emoji-image"), kitten_add_reaction_path(@kitten, type: 'sad'), method: :post, data: { turbo_action: 'replace', turbo_frame: 'my_frame' }, class: "cat-like-button", id: "sad-button" %>
-      <%= @kitten.reactions.find_by(reaction_type: 'sad').reaction_count %>
+      <span class="reaction-counter"><%= @kitten.reactions.find_by(reaction_type: 'sad').reaction_count %></span>
     </div>
   </div>
 
