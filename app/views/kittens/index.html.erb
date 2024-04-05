@@ -1,17 +1,16 @@
 <div class="container">
   <div class="row">
-    <% @images = ["love", "laugh", "happy", "cute", "sad"] %>
     <% @kittens.each_with_index do |kitten, index| %>
       <div class="col-md-4">
         <div class="box">
           <%= link_to kitten_path(kitten) do %>
-          <h2 class="title"><%= kitten.name %></h2>
+            <h2 class="title"><%= kitten.name %></h2>
             <%= image_tag "cat_#{index + 1}.jpg", class: "img-fluid" %>
           <% end %>
           <p class="like-counter">Total Reactions: <%= kitten.reactions.sum(:reaction_count) %></p>
           <div class="emoji-buttons">
             <% @images.each do |image| %>
-              <button class="like-button" data-kitten-id="<%= kitten.id %>" data-reaction-type="<%= image %>">
+              <button class="like-button" data-kitten-id="<%= kitten.id %>" data-kitten-name="<%= kitten.name %>" data-reaction-type="<%= image %>" data-image-path="<%= asset_path("#{image}.png") %>">
                 <%= image_tag "#{image}.png", class: "emoji-image" %>
               </button>
             <% end %>
@@ -22,13 +21,18 @@
   </div>
 </div>
 
+<div id="popup-bubble" class="reaction-message" style="display: none; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); padding: 10px; background-color: #eee; border: 1px solid #ccc; border-radius: 10px;">
+  Emoji clicked!
+</div>
 
 <script>
 document.querySelectorAll('.like-button').forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
     const kittenId = button.dataset.kittenId;
+    const kittenName = button.dataset.kittenName; // Get the kitten name from the data attribute
     const reactionType = button.dataset.reactionType;
+    const imagePath = button.dataset.imagePath;
     fetch(`/kittens/${kittenId}/reactions`, {
       method: 'POST',
       headers: {
@@ -41,7 +45,16 @@ document.querySelectorAll('.like-button').forEach((button) => {
     .then(response => response.json())
     .then(data => {
       button.closest('.box').querySelector('.like-counter').textContent = `Total Reactions: ${data.total_reactions}`;
-      button.querySelector('.reaction-counter').textContent = `${data.reaction_count}`;
+
+      // Show the pop-up bubble
+      const popupBubble = document.getElementById('popup-bubble');
+      popupBubble.innerHTML = `You <img src="${imagePath}" alt="${reactionType} emoji"> ${kittenName}!`; // Removed the first image here
+      popupBubble.style.display = 'block';
+
+      // Hide the pop-up bubble after 3 seconds
+      setTimeout(() => {
+        popupBubble.style.display = 'none';
+      }, 3000);
     });
   });
 });

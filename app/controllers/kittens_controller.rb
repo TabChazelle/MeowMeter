@@ -1,6 +1,7 @@
 class KittensController < ApplicationController
   def index
     @kittens = Kitten.limit(12)
+    @images = ["love", "laugh", "happy", "cute", "sad"]
   end
 
   def show
